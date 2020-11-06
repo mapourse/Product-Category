@@ -1,0 +1,14 @@
+D:\Projects\ADO.NET_CRUD\BLL\bin\Debug\BLL.dll
+D:\Projects\ADO.NET_CRUD\BLL\bin\Debug\BLL.pdb
+D:\Projects\ADO.NET_CRUD\BLL\bin\Debug\AutoMapper.dll
+D:\Projects\ADO.NET_CRUD\BLL\bin\Debug\DAL.dll
+D:\Projects\ADO.NET_CRUD\BLL\bin\Debug\EntityFramework.dll
+D:\Projects\ADO.NET_CRUD\BLL\bin\Debug\DAL.pdb
+D:\Projects\ADO.NET_CRUD\BLL\bin\Debug\DAL.dll.config
+D:\Projects\ADO.NET_CRUD\BLL\bin\Debug\AutoMapper.xml
+D:\Projects\ADO.NET_CRUD\BLL\bin\Debug\EntityFramework.xml
+D:\Projects\ADO.NET_CRUD\BLL\obj\Debug\BLL.csprojAssemblyReference.cache
+D:\Projects\ADO.NET_CRUD\BLL\obj\Debug\BLL.csproj.CoreCompileInputs.cache
+D:\Projects\ADO.NET_CRUD\BLL\obj\Debug\BLL.csproj.CopyComplete
+D:\Projects\ADO.NET_CRUD\BLL\obj\Debug\BLL.dll
+D:\Projects\ADO.NET_CRUD\BLL\obj\Debug\BLL.pdb
