@@ -54,11 +54,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\DALMainController.cs" />
+    <Compile Include="Interfaces\IRepository.cs" />
+    <Compile Include="Interfaces\IUnitofWork.cs" />
     <Compile Include="MarketDBInitializer.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Market.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repos\CategoryRepository.cs" />
+    <Compile Include="Repos\ProductRepository.cs" />
+    <Compile Include="UnitofWork.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

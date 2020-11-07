@@ -1,4 +1,5 @@
-﻿using DAL.Models;
+﻿using DAL.Interfaces;
+using DAL.Models;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -9,68 +10,67 @@ using System.Threading.Tasks;
 
 namespace DAL.Controllers
 {
-    public class DALMainController
+    public class DALMainController : IDisposable
     {
-        private Market _ctx;
+        private IUnitofWork _uow;
+        private bool _isDisposed;
 
         public DALMainController()
         {
-            _ctx = new Market();
+            _uow = new UnitofWork();
         }
 
         public IEnumerable<Category> GetCategories()
         {
-            return _ctx.Categories
-                .ToList();
+            return _uow.CategoryRepository.GetEntities();
         }
 
         public Category GetCategorybyId(int catId)
         {
-            return GetCategories()
-                .FirstOrDefault(c => c.Id == catId);
+            return _uow.CategoryRepository.GetEntitybyId(catId);
         }
 
         public void InsertorUpdateCategory(Category cat)
         {
-            _ctx.Entry(cat).State = cat.Id == 0 ?
-                System.Data.Entity.EntityState.Added :
-                System.Data.Entity.EntityState.Modified;
+            _uow.CategoryRepository.InsertorUpdateEntity(cat);
         }
 
         public IEnumerable<Product> GetProducts()
         {
-            return _ctx.Products
-                .ToList();
+            return _uow.ProductRepository.GetEntities();
         }
 
         public Product GetProductbyId(int prId)
         {
-            return GetProducts()
-                .FirstOrDefault(p => p.Id == prId);
+            return _uow.ProductRepository.GetEntitybyId(prId);
         }
 
         public void InsertorUpdateProduct(Product pr)
         {
-            Product toUpdate = _ctx.Products.FirstOrDefault(p => p.Id == pr.Id);// (pr).Entity.Category.(p => p.Category).Load();
-
-            if (toUpdate != null)
-                _ctx.Entry(toUpdate).CurrentValues.SetValues(pr);// = pr.Id == 0 ?
-            else
-                _ctx.Entry(pr).State =
-                    System.Data.Entity.EntityState.Added;
+            _uow.ProductRepository.InsertorUpdateEntity(pr);
         }
 
         public void DeleteProductbyId(int prId)
         {
-            Product pr = _ctx.Products
-                .FirstOrDefault(p => p.Id == prId);
+            _uow.ProductRepository.DeleteEntity(prId);
+        }
 
-            _ctx.Products.Remove(pr);
+        protected virtual void Dispose(bool disposing)
+        {
+            if (!_isDisposed && disposing)
+                _uow.Dispose();
+            _isDisposed = true;
+        }
+
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
         }
 
         public void SaveChanges()
         {
-            _ctx.SaveChanges();
+            _uow.SaveChanges();
         }
     }
 }
