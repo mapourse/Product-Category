@@ -1,6 +1,7 @@
 ﻿using DAL.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
@@ -50,9 +51,13 @@ namespace DAL.Controllers
 
         public void InsertorUpdateProduct(Product pr)
         {
-            _ctx.Entry(pr).State = pr.Id == 0 ?
-                System.Data.Entity.EntityState.Added :
-                System.Data.Entity.EntityState.Modified;
+            Product toUpdate = _ctx.Products.FirstOrDefault(p => p.Id == pr.Id);// (pr).Entity.Category.(p => p.Category).Load();
+
+            if (toUpdate != null)
+                _ctx.Entry(toUpdate).CurrentValues.SetValues(pr);// = pr.Id == 0 ?
+            else
+                _ctx.Entry(pr).State =
+                    System.Data.Entity.EntityState.Added;
         }
 
         public void DeleteProductbyId(int prId)

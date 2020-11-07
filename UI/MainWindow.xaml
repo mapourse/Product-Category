@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UI"
         mc:Ignorable="d"
-        Title="MainWindow" Height="400" Width="600">
+        Title="Product List" Height="400" Width="600">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition
@@ -31,14 +31,21 @@
             </DataGrid.ContextMenu>
         </DataGrid>
         <Button
-            Name="Bttn_NewProduct"
             Margin="5"
             Height="20"
             Padding="5, 0"
+            Name="Bttn_NewProduct"
             VerticalAlignment="Center"
             HorizontalAlignment="Right"
             Click="Bttn_NewProduct_Click">
             Add
         </Button>
+        <Label
+            Padding="0"
+            FontSize="20"
+            FontWeight="ExtraBold"
+            HorizontalAlignment="Center">
+            PRODUCT LIST
+        </Label>
     </Grid>
 </Window>
