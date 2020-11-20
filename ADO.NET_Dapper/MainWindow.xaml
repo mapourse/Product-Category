@@ -1,0 +1,49 @@
+﻿<Window x:Class="ADO.NET_Dapper.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ADO.NET_Dapper"
+        mc:Ignorable="d"
+        Title="Product List" Height="400" Width="600">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition
+            Height="1*"/>
+            <RowDefinition 
+            Height="10*"/>
+        </Grid.RowDefinitions>
+        <DataGrid
+        Grid.Row="1"
+        Name="DG_Info"
+        Margin="5, 0, 5, 5">
+            <DataGrid.ContextMenu>
+                <ContextMenu>
+                    <MenuItem
+                    Header="Modify"
+                    Name="CMI_Modify"
+                    Click="CMI_Modify_Click"/>
+                    <MenuItem
+                    Header="Delete"
+                    Name="CMI_Delete"
+                    Click="CMI_Delete_Click"/>
+                </ContextMenu>
+            </DataGrid.ContextMenu>
+        </DataGrid>
+        <Button
+        Margin="5"
+        Height="20"
+        Padding="5, 0"
+        Name="Bttn_NewItem"
+        VerticalAlignment="Center"
+        HorizontalAlignment="Right"
+        Click="Bttn_NewItem_Click">
+            Add
+        </Button>
+        <ComboBox
+            Margin="5"
+            Name="CB_ItemstoShow"
+            HorizontalAlignment="Center"
+            SelectionChanged="CB_ItemstoShow_Selected"/>
+    </Grid>
+</Window>

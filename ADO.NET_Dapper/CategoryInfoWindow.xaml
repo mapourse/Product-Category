@@ -1,0 +1,65 @@
+﻿<Window x:Class="ADO.NET_Dapper.CategoryInfoWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ADO.NET_Dapper"
+        mc:Ignorable="d"
+        Title="CategoryInfoWindow" Height="200" Width="250">
+    <Window.Resources>
+        <Style 
+            TargetType="TextBox">
+            <Setter
+                Property="BorderThickness"
+                Value="0, 0, 0, 1"/>
+        </Style>
+        <Style 
+            TargetType="Label">
+            <Setter
+                Property="BorderThickness"
+                Value="0, 0, 0, 1"/>
+            <Setter 
+                Property="Foreground"
+                Value="Gray"/>
+            <Setter
+                Property="Padding"
+                Value="0"/>
+            <Setter
+                Property="FontSize"
+                Value="10"/>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <Grid
+            Margin="5">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1.5*"/>
+            </Grid.RowDefinitions>
+            <Label
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center">
+                name
+            </Label>
+            <TextBox
+                Name="TB_Name"
+                BorderThickness="0, 0, 0, 1"
+                Grid.Row="1"/>
+        </Grid>
+        <Button
+            Name="Bttn_Submit"
+            Width="60"
+            Height="25"
+            Grid.Row="2"
+            FontWeight="Bold"
+            BorderThickness="0"
+            Background="WhiteSmoke"
+            Grid.ColumnSpan="2" Click="Bttn_Submit_Click">
+            Submit
+        </Button>
+    </Grid>
+</Window>
